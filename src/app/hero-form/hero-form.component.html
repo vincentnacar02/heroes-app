@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+  <div class="form-row">
+    <div class="col-auto">
+      <input type="text" class="form-control" placeholder="Code name"  id="codename" [(ngModel)]="hero.codename" name="codename"
+      #codename="ngModel" />
+    </div>
+    <div class="col-auto">
+      <input type="text" class="form-control" placeholder="Ability"  id="ability" [(ngModel)]="hero.ability" name="ability"
+      #ability="ngModel" />
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>
+<hr />

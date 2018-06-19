@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Earth Mighty Heroes</h1>
+  <span>Last Update: {{ (lastUpdated | async) | date:'mediumTime' }}</span>
+  <span>
+    <button class="btn btn-danger" (click)="onDeleteAll()">Delete All</button>
+  </span>
+  <hr>
+  <app-hero-form></app-hero-form>
+  <div class="alert alert-info" *ngIf="(heroes | async)?.length == 0">
+    No heroes yet!
+  </div>
+  <div *ngIf="(heroes | async)?.length != 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Code Name</th>
+          <th>Ability</th>
+          <th>Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let h of heroes | async">
+          <td>{{ h.id }}</td>
+          <td>{{ h.codename }}</td>
+          <td>{{ h.ability }}</td>
+          <td>
+            <span>
+              <button class="btn btn-danger" (click)="onDelete(h)">Delete</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
